@@ -9,4 +9,5 @@ public interface IUrlRepository extends JpaRepository<UrlEntity, Long> {
 
     Optional<UrlEntity> findByUrl(String url);
     Optional<UrlEntity> findByShortUrl(String shortUrl);
+    void deleteByShortUrl(String shortUrl);
 }

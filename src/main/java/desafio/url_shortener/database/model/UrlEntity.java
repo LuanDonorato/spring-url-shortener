@@ -19,6 +19,6 @@ public class UrlEntity {
     @Column(nullable = false)
     private String url;
 
-    @Column
+    @Column(unique = true)
     private String shortUrl;
 }
