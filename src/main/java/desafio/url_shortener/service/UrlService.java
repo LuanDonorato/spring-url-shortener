@@ -17,7 +17,7 @@ public class UrlService {
 
     public final IUrlRepository urlRepository;
 
-    public void createUrl(UrlEntity urlEntity) throws UrlAlreadyExistsException{
+    public String createUrl(UrlEntity urlEntity) throws UrlAlreadyExistsException{
         Optional<UrlEntity> url = urlRepository.findByUrl(urlEntity.getUrl());
 
         if (url.isPresent()) {
@@ -27,6 +27,8 @@ public class UrlService {
         urlEntity.setShortUrl(shortenUrl());
 
         urlRepository.save(urlEntity);
+
+        return "shortUrl: " + urlEntity.getShortUrl();
     }
 
     public String shortenUrl() {
@@ -55,7 +57,7 @@ public class UrlService {
 
         UrlEntity urlEntity = url.get();
 
-        return urlEntity.getUrl();
+        return "url: " + urlEntity.getUrl();
     }
 
     @Transactional

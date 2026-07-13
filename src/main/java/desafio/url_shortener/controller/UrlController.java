@@ -21,8 +21,8 @@ public class UrlController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Criar uma URL encurtada", description = "Recebe uma URL e gera uma versão encurtada")
-    public void createUrl(@RequestBody UrlEntity urlEntity) throws UrlAlreadyExistsException {
-        urlService.createUrl(urlEntity);
+    public String createUrl(@RequestBody UrlEntity urlEntity) throws UrlAlreadyExistsException {
+        return urlService.createUrl(urlEntity);
     }
 
     @GetMapping("/{shortUrl}")

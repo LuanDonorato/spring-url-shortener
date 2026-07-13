@@ -68,7 +68,7 @@ class UrlServiceTest {
         BDDMockito.given(repository.findByShortUrl(
                 entity.getShortUrl())).willReturn(Optional.of(entity));
 
-        Assertions.assertEquals(entity.getUrl(), service.getShortUrl(entity.getShortUrl()));
+        Assertions.assertEquals("url: " + entity.getUrl(), service.getShortUrl(entity.getShortUrl()));
     }
 
     @Test
